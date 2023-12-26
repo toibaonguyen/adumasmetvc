@@ -1,122 +1,179 @@
-import type { NextPage } from 'next';
-import styles from './index.module.css';
-import { useRouter } from 'next/router';
+import * as React from "react";
+import Avatar from "@mui/material/Avatar";
+import Button from "@mui/material/Button";
+import CssBaseline from "@mui/material/CssBaseline";
+import TextField from "@mui/material/TextField";
+import FormControlLabel from "@mui/material/FormControlLabel";
+import Checkbox from "@mui/material/Checkbox";
+import Link from "@mui/material/Link";
+import Grid from "@mui/material/Grid";
+import Box from "@mui/material/Box";
+import LockOutlinedIcon from "@mui/icons-material/LockOutlined";
+import Typography from "@mui/material/Typography";
+import Container from "@mui/material/Container";
+import { createTheme, ThemeProvider } from "@mui/material/styles";
+import { RadioGroup, Radio, FormControl, FormLabel } from "@mui/material";
+import { DateTimePicker } from "@mui/x-date-pickers/DateTimePicker";
+import { LocalizationProvider } from "@mui/x-date-pickers/LocalizationProvider";
+import { AdapterDayjs } from "@mui/x-date-pickers/AdapterDayjs";
+import { CreatePatient } from "@/apis/Patient";
 
+// TODO remove, this demo shouldn't need to reset the theme.
+const defaultTheme = createTheme();
 
-const LoginPageDefaultStates:NextPage = () => {
-	const router = useRouter()
-	const handleSigninp = () => {
-		router.push('./sign-in')
-	}
-  	return (
-        <div className={styles.myBody}>
-    		<div className={styles.loginPageDefaultStates1}>
-      			<div className={styles.loginPageDefaultStatesChild} />
-      			<div className={styles.right}>
-        				<div className={styles.getTheApp1}>
-          					<div className={styles.buttns}>
-            						<img className={styles.downloadBadgeGooglePlayB1} alt="" src="Download Badge / Google Play Badge.png" />
-            						<img className={styles.downloadBadgeGooglePlayB1} alt="" src="Download Badge / App Store Badge.png" />
-          					</div>
-        				</div>
-        				<div className={styles.dontHaveAnContainer}>
-          					<span>{`Don’t have an account? `}</span>
-          					<span className={styles.logIn}>Log In</span>
-        				</div>
-        				<div className={styles.form}>
-          					<div className={styles.googleButton}>
-            						<div className={styles.googleButtonChild} />
-            						<div className={styles.signInWithGoogle1} onClick={handleSigninp}>Sign-in with google</div>
-            						<img className={styles.iconfinderGoogle129874511} alt="" src="iconfinder_Google_1298745 1.png" />
-          					</div>
-          					<div className={styles.loginButton}>
-            						<div className={styles.loginButtonChild} />
-            						<div className={styles.createAccount}>Create account</div>
-          					</div>
-          					<div className={styles.forgotPassword}>Forgot password?</div>
-            						<div className={styles.termsAndPrivacyPolicy1}>
-              							<div className={styles.termsAndPrivacyPolicyChild} />
-              							<div className={styles.iAgreeToContainer}>
-                								<span>{`I agree to all the `}</span>
-                								<span className={styles.logIn}>Terms</span>
-                								<span>{` and `}</span>
-                								<span className={styles.logIn}>{`Privacy policy `}</span>
-              							</div>
-            						</div>
-            						<div className={styles.rememberMe}>
-              							<div className={styles.termsAndPrivacyPolicyChild} />
-              							<div className={styles.iAgreeToContainer}>Remember me</div>
-            						</div>
-            						<div className={styles.entryField}>
-              							<div className={styles.entryField1}>
-                								<div className={styles.iAgreeToContainer}>First name</div>
-                								<div className={styles.entryFieldInner}>
-                  									<div className={styles.groupChild} />
-                								</div>
-              							</div>
-              							<div className={styles.entryField2}>
-                								<div className={styles.iAgreeToContainer}>Email or phone number</div>
-                								<div className={styles.entryFieldInner}>
-                  									<div className={styles.groupChild} />
-                								</div>
-              							</div>
-              							<div className={styles.entryField3}>
-                								<div className={styles.iAgreeToContainer}>Password</div>
-                								<div className={styles.entryFieldInner}>
-                  									<div className={styles.groupChild} />
-                								</div>
-              							</div>
-              							<div className={styles.entryField4}>
-                								<div className={styles.iAgreeToContainer}>Confirm password</div>
-                								<div className={styles.entryFieldInner}>
-                  									<div className={styles.groupChild} />
-                								</div>
-              							</div>
-              							<div className={styles.entryField5}>
-                								<div className={styles.iAgreeToContainer}>
-                  									<span>{`Date of birth `}</span>
-                  									<span className={styles.mmddyy}>(MM/DD/YY)</span>
-                								</div>
-                								<div className={styles.entryFieldInner}>
-                  									<div className={styles.groupChild} />
-                								</div>
-              							</div>
-              							<div className={styles.entryField6}>
-                								<div className={styles.iAgreeToContainer}>Last name</div>
-                								<div className={styles.entryFieldInner}>
-                  									<div className={styles.groupChild} />
-                								</div>
-              							</div>
-              							<img className={styles.calendarMonthOutlineIcon1} alt="" src="calendar-month-outline.png" />
-            						</div>
-            						</div>
-            						<div className={styles.text}>
-              							<div className={styles.createAccount1}>Create account</div>
-              							<div className={styles.forBusinessBand1}>For business, band or celebrity.</div>
-            						</div>
-            						<div className={styles.logo}>
-              							<div className={styles.capzul}>Capzul</div>
-              							<img className={styles.imgNewLogoLowQualityIcon1} alt="" src="img-new-logo-low-quality.png" />
-            						</div>
-            						</div>
-            						<div className={styles.left}>
-              							<div className={styles.bg} />
-              							<div className={styles.sliderDots}>
-                								<div className={styles.sliderDotsChild} />
-                								<img className={styles.sliderDotsItem} alt="" src="Group 18.png" />
-                								<div className={styles.sliderDotsChild} />
-              							</div>
-              							<div className={styles.leftChild} />
-              							<div className={styles.imgs}>
-                								<img className={styles.imgfeaturesArchive4Icon} alt="" src="imgfeatures-archive 4.png" />
-                								<img className={styles.imgfeaturesArchive5Icon} alt="" src="imgfeatures-archive 5.png" />
-                								<img className={styles.imgfeaturesArchive6Icon} alt="" src="imgfeatures-archive 6.png" />
-              							</div>
-              							<div className={styles.socialMediaShared1}>Social media shared today, tomorrow or by location</div>
-            						</div>
-                                    </div>
-            						</div>);
-          					};
-          					
-          					export default LoginPageDefaultStates;
-          					
+export default function SignUp() {
+  const handleSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
+    event.preventDefault();
+    const data = new FormData(event.currentTarget);
+    console.log({
+      email: data.get("email"),
+      password: data.get("password"),
+      birthday: data.get("birthday"),
+      name:data.get("name"),
+      gender:data.get("gender")
+    });
+
+    try{
+      await CreatePatient({
+        email: data.get("email")?.toString() || "",
+        password: data.get("password")?.toString() || "",
+        birthday: new Date(Date.parse(data.get("birthday")?.toString().replace("/","-") || "2000-10-10")),
+        name: data.get("name")?.toString() || "",
+        gender: data.get("gender")?.toString() || "MALE",
+        bloodType: "",
+       
+      })
+
+      console.log("OKOK")
+    }
+    catch(e)
+    {
+      console.log("????")
+      console.error(e);
+    }
+  };
+
+  return (
+    <LocalizationProvider dateAdapter={AdapterDayjs}>
+      <ThemeProvider theme={defaultTheme}>
+        <Container component="main" maxWidth="xs">
+          <CssBaseline />
+          <Box
+            sx={{
+              marginTop: 8,
+              display: "flex",
+              flexDirection: "column",
+              alignItems: "center",
+            }}
+          >
+            <Typography component="h1" variant="h5">
+              Sign up
+            </Typography>
+            <Box
+              component="form"
+              noValidate
+              onSubmit={handleSubmit}
+              sx={{ mt: 3 }}
+            >
+              <Grid container spacing={2}>
+                <Grid item xs={12} sm={6}>
+                  <TextField
+                    autoComplete="given-name"
+                    name="name"
+                    required
+                    fullWidth
+                    id="name"
+                    label="Name"
+                    autoFocus
+                  />
+                </Grid>
+                <Grid item xs={12} sm={6}>
+                  <DateTimePicker format="YYYY-MM-DD" views={["year","month","day"]} name="birthday"/>
+                </Grid>
+                <Grid item xs={12}>
+                  <TextField
+                    required
+                    fullWidth
+                    id="email"
+                    label="Email Address"
+                    name="email"
+                    autoComplete="email"
+                  />
+                </Grid>
+                <Grid item xs={12}>
+                  <TextField
+                    required
+                    fullWidth
+                    name="password"
+                    label="Password"
+                    type="password"
+                    id="password"
+                    autoComplete="new-password"
+                  />
+                </Grid>
+                <Grid item xs={12}>
+                  <FormControl component="fieldset">
+                    <FormLabel component="legend">
+                      Choose your gender:
+                    </FormLabel>
+                    <RadioGroup
+                      aria-label="gender"
+                      name="gender"
+                      // value={gender}
+                      // onChange={handleGenderChange}
+                      row // Hiển thị lựa chọn theo hàng ngang
+                    >
+                      <FormControlLabel
+                        value="MALE"
+                        control={<Radio />}
+                        label="Male"
+                      />
+                      <FormControlLabel
+                        value="FEMALE"
+                        control={<Radio />}
+                        label="Female"
+                      />
+                      <FormControlLabel
+                        value="OTHER"
+                        control={<Radio />}
+                        label="Other"
+                      />
+                      <FormControlLabel
+                        value="UNKNOWN"
+                        control={<Radio />}
+                        label="Unknown"
+                      />
+                    </RadioGroup>
+                  </FormControl>
+                </Grid>
+                <Grid item xs={12}>
+                  <FormControlLabel
+                    control={
+                      <Checkbox value="allowExtraEmails" color="primary" />
+                    }
+                    label="I want to receive inspiration, marketing promotions and updates via email."
+                  />
+                </Grid>
+              </Grid>
+              <Button
+                type="submit"
+                fullWidth
+                variant="contained"
+                sx={{ mt: 3, mb: 2 }}
+              >
+                Sign Up
+              </Button>
+              <Grid container justifyContent="flex-end">
+                <Grid item>
+                  <Link href="/p/sign-in" variant="body2">
+                    Already have an account? Sign in
+                  </Link>
+                </Grid>
+              </Grid>
+            </Box>
+          </Box>
+        </Container>
+      </ThemeProvider>
+    </LocalizationProvider>
+  );
+}
